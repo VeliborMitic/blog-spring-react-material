@@ -25,7 +25,10 @@ public class PostController extends BaseController {
     @RequestMapping("list")
     @ResponseBody
     public List<Post> reqList() {
-        return postRepository.findAll();
+        List<Post> all = postRepository.findAll();
+        logger.trace("POST LIST ------------------------------------------------");
+        all.forEach(e -> logger.trace("POST[" + e.getId() + "] " + e.getTitle()));
+        return all;
     }
 
     @RequestMapping("add")
