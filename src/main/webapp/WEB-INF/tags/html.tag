@@ -1,5 +1,5 @@
-<%@ tag pageEncoding="utf-8"%>
+<%@ tag pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html>
-	<jsp:doBody />
+<jsp:doBody/>
 </html>

@@ -10,5 +10,6 @@
     <page:body>
         <jsp:doBody/>
         <page:footer/>
+        <page:js/>
     </page:body>
 </page:html>
