@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 /**
  * Created by tinywind on 2016-06-20.
  */
@@ -27,13 +29,21 @@ public class MetaController extends BaseController {
     @RequestMapping(value = "init", method = RequestMethod.GET)
     public String reqInit(Model model) {
         model.addAttribute("meta", meta);
-        return "!meta/init";
+        return "meta/init";
     }
 
     @RequestMapping(value = "init", method = RequestMethod.POST)
     public String reqInit(BlogMeta meta) {
-        BlogMeta blogMeta = metaRepository.saveAndFlush(meta);
-        this.meta.set(blogMeta);
-        return "redirect:/!meta/init";
+        List<BlogMeta> metas = metaRepository.findAll();
+        if (metas.size() == 0) {
+            BlogMeta blogMeta = metaRepository.saveAndFlush(meta);
+            this.meta.set(blogMeta);
+        } else {
+            BlogMeta blogMeta = metas.get(metas.size() - 1);
+            blogMeta.set(meta);
+            metaRepository.saveAndFlush(blogMeta);
+            this.meta.set(blogMeta);
+        }
+        return "redirect:/";
     }
 }

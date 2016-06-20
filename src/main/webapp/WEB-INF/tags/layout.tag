@@ -8,8 +8,10 @@
     <page:head>
     </page:head>
     <page:body>
+        <page:nav/>
         <jsp:doBody/>
         <page:footer/>
         <page:js/>
+        <page:scripts method="pop"/>
     </page:body>
 </page:html>

@@ -47,7 +47,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -68,6 +68,11 @@
             <groupId>org.webjars.bower</groupId>
             <artifactId>materialize</artifactId>
             <version>0.97.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>pen</artifactId>
+            <version>0.2.2</version>
         </dependency>
     </dependencies>
 

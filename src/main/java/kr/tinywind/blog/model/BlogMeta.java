@@ -16,14 +16,20 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
-@RequiredArgsConstructor
-@AllArgsConstructor
 @Entity
 @Component
 public class BlogMeta extends AbstractPersistable<Long> {
     @Length(min = 1, max = 255)
     @NonNull
-    private String title;
+    private String title = "";
+
+    @Length(min = 1, max = 255)
+    @NonNull
+    private String author = "";
+
+    @Length(max = 1024)
+    @NonNull
+    private String introduce = "";
 
     @Basic(optional = false)
     @Column(updatable = false)
@@ -40,6 +46,8 @@ public class BlogMeta extends AbstractPersistable<Long> {
 
     public void set(BlogMeta meta) {
         this.title = meta.title;
+        this.author = meta.author;
+        this.introduce = meta.introduce;
 //        this.createdAt = meta.createdAt;
         this.updatedAt = meta.updatedAt;
     }

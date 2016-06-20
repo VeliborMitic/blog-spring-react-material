@@ -25,7 +25,7 @@ public class Post extends AbstractPersistable<Long> {
 
     @Column(nullable = false)
     @NonNull
-    private String description;
+    private String content;
 
     @Basic(optional = false)
     @Column(updatable = false)

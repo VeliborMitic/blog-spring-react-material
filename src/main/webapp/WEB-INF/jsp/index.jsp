@@ -3,20 +3,6 @@
 <%@ taglib prefix="page" tagdir="/WEB-INF/tags" %>
 
 <page:layout>
-    <nav class="white" role="navigation">
-        <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo">Logo</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#">Navbar Link</a></li>
-            </ul>
-
-            <ul id="nav-mobile" class="side-nav">
-                <li><a href="#">Navbar Link</a></li>
-            </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-        </div>
-    </nav>
-
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
             <div class="container">
@@ -38,10 +24,8 @@
         </div>
     </div>
 
-
     <div class="container">
         <div class="section">
-
             <!--   Icon Section   -->
             <div class="row">
                 <div class="col s12 m4">

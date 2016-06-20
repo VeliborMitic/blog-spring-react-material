@@ -6,7 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -31,7 +34,12 @@ public class PostController extends BaseController {
         return all;
     }
 
-    @RequestMapping("add")
+    @RequestMapping(value = "add", method = RequestMethod.GET)
+    public String reqAdd(Model model, @ModelAttribute Post post) {
+        return "post/add";
+    }
+
+    @RequestMapping(value = "add", method = RequestMethod.POST)
     public String reqAdd(Post post) {
         Post flushedPost = postRepository.saveAndFlush(post);
         logger.info("SAVED POST[" + flushedPost.getId() + "] " + flushedPost.getTitle());
