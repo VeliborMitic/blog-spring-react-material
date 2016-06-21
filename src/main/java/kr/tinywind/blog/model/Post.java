@@ -32,4 +32,9 @@ public class Post extends AbstractPersistable<Long> {
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date createdAt = new Date();
+
+    public void update(Post post) {
+        this.title = post.title;
+        this.content = post.content;
+    }
 }

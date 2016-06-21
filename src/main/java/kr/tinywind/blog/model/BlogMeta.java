@@ -29,7 +29,15 @@ public class BlogMeta extends AbstractPersistable<Long> {
 
     @Length(max = 1024)
     @NonNull
+    private String greeting = "";
+
+    @Length(max = 1024)
+    @NonNull
     private String introduce = "";
+
+    @Length(max = 1024)
+    @NonNull
+    private String mail = "";
 
     @Basic(optional = false)
     @Column(updatable = false)
@@ -48,6 +56,8 @@ public class BlogMeta extends AbstractPersistable<Long> {
         this.title = meta.title;
         this.author = meta.author;
         this.introduce = meta.introduce;
+        this.greeting = meta.greeting;
+        this.mail = meta.mail;
 //        this.createdAt = meta.createdAt;
         this.updatedAt = meta.updatedAt;
     }

@@ -1,12 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%--@elvariable id="tagExtender" type="kr.tinywind.blog.util.TagExtender"--%>
 
 <%@attribute name="method" required="false" type="java.lang.String" %>
 
 <jsp:doBody var="TAG_SCRIPTS" scope="request"/>
-
-<%--${TAG_SCRIPTS}--%>
 
 ${tagExtender.stackBody("TAG_SCRIPTS", "TAG_SCRIPTS_LIST")}
 

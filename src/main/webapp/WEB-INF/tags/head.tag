@@ -1,5 +1,7 @@
 <%@ tag pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--@elvariable id="meta" type="kr.tinywind.blog.model.BlogMeta"--%>
+
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
