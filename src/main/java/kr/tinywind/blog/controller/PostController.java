@@ -25,7 +25,7 @@ public class PostController extends BaseController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String reqAdd(Model model, @ModelAttribute Post post) {
-        return "post/add";
+        return "post/form";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
@@ -76,6 +76,6 @@ public class PostController extends BaseController {
     public String reqModify(Post post, @PathVariable("id") Long id) {
         Post fetch = postRepository.getOne(id);
         fetch.update(post);
-        return "redirect:/post/" + postRepository.save(fetch).getId();
+        return "redirect:/!post/" + postRepository.save(fetch).getId();
     }
 }

@@ -25,11 +25,14 @@
         결과 없음
     </c:if>
 
-    <c:if test="${end >= 0}">
-        <li>
-            <a href="<c:url value="/!post/list?page=0&search=${search}"/>"> <i class="material-icons">chevron_left</i>
-            </a>
-        </li>
+    <c:if test="${end >= 1}">
+        <c:if test="${posts.number != 0}">
+            <li>
+                <a href="<c:url value="/!post/list?page=0&search=${search}"/>"> <i
+                        class="material-icons">chevron_left</i>
+                </a>
+            </li>
+        </c:if>
         <c:forEach var="num" begin="${start}" end="${end}">
             <c:choose>
                 <c:when test="${posts.number == num}">
@@ -41,9 +44,11 @@
                 </c:otherwise>
             </c:choose>
         </c:forEach>
-        <li>
-            <a href="<c:url value="/!post/list?page=${posts.totalPages - 1}&search=${search}"/>"> <i
-                    class="material-icons">chevron_right</i></a>
-        </li>
+        <c:if test="${posts.number != posts.totalPages - 1}">
+            <li>
+                <a href="<c:url value="/!post/list?page=${posts.totalPages - 1}&search=${search}"/>"> <i
+                        class="material-icons">chevron_right</i></a>
+            </li>
+        </c:if>
     </c:if>
 </ul>

@@ -11,7 +11,7 @@
     <div class="container">
         <c:if test="${search != null && search.length() > 0}">
             <div>
-                <i>${search}</i> 에 대한 검색 결과
+                <i class="cyan-text">${search}</i> 에 대한 검색 결과
             </div>
         </c:if>
         <jsp:include page="/!post/list.section" flush="true"/>

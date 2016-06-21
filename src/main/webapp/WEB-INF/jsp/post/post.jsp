@@ -4,6 +4,7 @@
 <%@ taglib prefix="page" tagdir="/WEB-INF/tags" %>
 <%--@elvariable id="meta" type="kr.tinywind.blog.model.BlogMeta"--%>
 <%--@elvariable id="post" type="kr.tinywind.blog.model.Post"--%>
+<%--@elvariable id="_USER" type="org.springframework.social.connect.UserProfile"--%>
 
 <page:layout>
     <article>
@@ -17,16 +18,19 @@
                             href="mailto:${meta.mail}">${meta.author}</a> on ${post.createdAt}</div>
                 </div>
             </div>
-            <div class="row">
-                <div class="right">
-                    <a href="/!post/${post.id}/modify">
-                        <button type="button" class="btn btn-warning">Edit</button>
-                    </a>
-                    <a href="/!post/${post.id}/delete" onclick="if(!confirm('삭제하시겠습니까?')){return false;}">
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </a>
+
+            <c:if test="${_USER != null}">
+                <div class="row">
+                    <div class="right">
+                        <a href="/!post/${post.id}/modify">
+                            <button type="button" class="btn btn-warning">Edit</button>
+                        </a>
+                        <a href="/!post/${post.id}/delete" onclick="if(!confirm('삭제하시겠습니까?')){return false;}">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </c:if>
         </div>
     </article>
 </page:layout>

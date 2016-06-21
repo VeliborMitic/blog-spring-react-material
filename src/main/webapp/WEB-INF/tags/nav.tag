@@ -42,7 +42,7 @@
                 <a class="waves-effect waves-teal"
                    href="javascript:$('<form/>',{method:'post', action: '<c:url value="/signin/facebook"/>'})
                         .append($('<input/>',{name:'_csrf', value: '${_csrf.token}'}))
-                        .submit();">Connect to Facebook</a>
+                        .submit();">Login on Facebook</a>
             </li>
         </c:when>
         <c:otherwise>
@@ -61,7 +61,7 @@
                                     <a class="waves-effect waves-teal"
                                        href="javascript:$('<form/>',{method:'post', action: '<c:url value="/!user/logout"/>'})
                                         .append($('<input/>',{name:'_csrf', value: '${_csrf.token}'}))
-                                        .submit();">Disconnect</a>
+                                        .submit();">Logout</a>
                                 </li>
                             </ul>
                         </div>
