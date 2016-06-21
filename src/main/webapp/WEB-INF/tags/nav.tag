@@ -30,8 +30,10 @@
     </li>
     <li class="search">
         <div class="search-wrapper card">
-            <input id="search"><i class="material-icons">search</i>
-            <div class="search-results"></div>
+            <form method="get" action="<c:url value="/!post/list"/>">
+                <input id="search" name="search"><i class="material-icons">search</i>
+                <div class="search-results"></div>
+            </form>
         </div>
     </li>
     <c:choose>

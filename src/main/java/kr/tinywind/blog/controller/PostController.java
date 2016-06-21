@@ -10,10 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by tinywind on 2016-06-20.
@@ -39,7 +36,8 @@ public class PostController extends BaseController {
     }
 
     @RequestMapping("list")
-    public String reqList(Model model) {
+    public String reqList(Model model, @RequestParam(value = "search", required = false) String search) {
+        model.addAttribute("search", search);
         return "post/list";
     }
 
@@ -50,8 +48,9 @@ public class PostController extends BaseController {
     }
 
     @RequestMapping("list.section")
-    public String reqListSection(Model model, @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC, size = 5) Pageable pageable) {
-        model.addAttribute("posts", postRepository.findAll(pageable));
+    public String reqListSection(Model model, @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC, size = 5) Pageable pageable, @RequestParam(value = "search", required = false, defaultValue = "") String search) {
+        model.addAttribute("search", search);
+        model.addAttribute("posts", postRepository.findByTitleOrContent(pageable, search));
         return "post/list.section";
     }
 

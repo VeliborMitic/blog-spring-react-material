@@ -18,7 +18,7 @@
 </c:forEach>
 
 <ul class="row pagination center-align">
-    <li><a href="<c:url value="/!post/list?page=0"/>"> <i class="material-icons">chevron_left</i> </a></li>
+    <li><a href="<c:url value="/!post/list?page=0&search=${search}"/>"> <i class="material-icons">chevron_left</i> </a></li>
     <c:forEach var="num" begin="${posts.number - 5 > 0 ? posts.number - 5 : 0}"
                end="${posts.number + 5 < posts.totalPages -1 ? posts.number + 5 : posts.totalPages -1}">
         <c:choose>
@@ -26,9 +26,9 @@
                 <li class="disabled"> ${num + 1} </li>
             </c:when>
             <c:otherwise>
-                <li class="waves-effect"><a href="<c:url value="/!post/list?page=${num}"/>"> ${num + 1} </a></li>
+                <li class="waves-effect"><a href="<c:url value="/!post/list?page=${num}&search=${search}"/>"> ${num + 1} </a></li>
             </c:otherwise>
         </c:choose>
     </c:forEach>
-    <li><a href="<c:url value="/!post/list?page=${posts.totalPages - 1}"/>"> <i class="material-icons">chevron_right</i> </a></li>
+    <li><a href="<c:url value="/!post/list?page=${posts.totalPages - 1}&search=${search}"/>"> <i class="material-icons">chevron_right</i> </a></li>
 </ul>
