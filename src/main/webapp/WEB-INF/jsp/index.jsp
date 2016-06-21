@@ -2,29 +2,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="page" tagdir="/WEB-INF/tags" %>
 <%--@elvariable id="meta" type="kr.tinywind.blog.model.BlogMeta"--%>
+<%--@elvariable id="_USER" type="org.springframework.social.connect.UserProfile"--%>
 
 <page:layout>
-    <div id="index-banner" class="parallax-container">
-        <div class="section no-pad-bot">
-            <div class="container">
-                <br>
-                <br>
-                <h1 class="header center teal-text text-lighten-2">${meta.title}</h1>
-                <div class="row center">
-                    <h5 class="header col s12 light">${meta.greeting}</h5>
-                </div>
-                    <%--
-                    <div class="row center">
-                        <a href="http://materializecss.com/getting-started.html" id="download-button"
-                           class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
-                    </div>
-                    --%>
-                <br>
-                <br>
-            </div>
-        </div>
-        <div class="parallax"><img src="<c:url value="/image/background1.jpg"/>"/></div>
-    </div>
+    <style>
+        .staggered li {
+            opacity: 0;
+            list-style-type: none;
+        }
+    </style>
 
     <div class="container">
         <div class="row">
@@ -33,4 +19,19 @@
             </div>
         </div>
     </div>
+
+    <page:scripts>
+        <script type="text/javascript">
+            $(window).load(function () {
+                Materialize.showStaggeredList(".staggered");
+            });
+            <c:if test="${_USER != null}">
+            Materialize.scrollFire([{
+                selector: '.staggered', offset: 0, callback: function () {
+                    Materialize.toast("Hello ${_USER.name}!", 1500);
+                }
+            }]);
+            </c:if>
+        </script>
+    </page:scripts>
 </page:layout>

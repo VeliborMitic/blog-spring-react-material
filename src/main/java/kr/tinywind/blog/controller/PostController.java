@@ -38,15 +38,15 @@ public class PostController extends BaseController {
         return "redirect:/!post/list";
     }
 
+    @RequestMapping("list")
+    public String reqList(Model model) {
+        return "post/list";
+    }
+
     @RequestMapping("list-index.section")
     public String reqListIndexSection(Model model, @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC, size = 3) Pageable pageable) {
         model.addAttribute("posts", postRepository.findAll(pageable));
         return "post/list-index.section";
-    }
-
-    @RequestMapping("list")
-    public String reqList(Model model) {
-        return "post/list";
     }
 
     @RequestMapping("list.section")

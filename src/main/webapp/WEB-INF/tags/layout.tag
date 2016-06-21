@@ -8,9 +8,15 @@
     <page:head>
     </page:head>
     <page:body>
-        <page:nav/>
-        <jsp:doBody/>
-        <page:footer/>
+        <header>
+            <page:nav/>
+        </header>
+        <main>
+            <jsp:doBody/>
+        </main>
+        <footer class="page-footer teal">
+            <page:footer/>
+        </footer>
         <page:js/>
         <page:scripts method="pop"/>
     </page:body>

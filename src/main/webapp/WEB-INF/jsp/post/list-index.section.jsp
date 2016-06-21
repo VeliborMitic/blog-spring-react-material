@@ -6,16 +6,20 @@
 <%--@elvariable id="meta" type="kr.tinywind.blog.model.BlogMeta"--%>
 <%--@elvariable id="posts" type="org.springframework.data.domain.Page<kr.tinywind.blog.model.Post>"--%>
 
-<c:forEach var="post" items="${posts.content}">
-    <a href="/!post/${post.id}" class="card-panel card small waves-effect waves-block">
-        <div class="card-title cyan-text text-darken-4">${post.title}</div>
-        <div class="card-content black-text text-darken-4">${post.content}</div>
-        <div class="card-action right-align black-text text-lighten-3">
-            Posted by <strong>${meta.author}</strong> on <i><fmt:formatDate value="${post.createdAt}"
-                                                                            pattern="yyyy-MM-dd"/></i>
-        </div>
-    </a>
-</c:forEach>
+<ul class="staggered">
+    <c:forEach var="post" items="${posts.content}">
+        <li>
+            <a href="/!post/${post.id}" class="card-panel card small waves-effect waves-block">
+                <div class="card-title cyan-text text-darken-4">${post.title}</div>
+                <div class="card-content black-text text-darken-4">${post.content}</div>
+                <div class="card-action right-align black-text text-lighten-3">
+                    Posted by <strong>${meta.author}</strong> on <i><fmt:formatDate value="${post.createdAt}"
+                                                                                    pattern="yyyy-MM-dd"/></i>
+                </div>
+            </a>
+        </li>
+    </c:forEach>
+</ul>
 
 <ul class="row">
     <c:if test="${!posts.first}">
