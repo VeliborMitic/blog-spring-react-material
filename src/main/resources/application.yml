@@ -3,6 +3,10 @@ spring:
         view:
             prefix: /WEB-INF/jsp/
             suffix: .jsp
+    social:
+        facebook:
+          app-id: 416594738519652
+          app-secret: c15eecb7ea5ca8da0c8ae7497b037a9d
     jpa:
         generate-ddl: true
         show-sql: true
@@ -32,3 +36,4 @@ server:
     error:
         whitelabel:
             enabled: false
+

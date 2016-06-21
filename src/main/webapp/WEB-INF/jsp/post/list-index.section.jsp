@@ -10,7 +10,7 @@
     <a href="/!post/${post.id}" class="card-panel card small waves-effect waves-block">
         <div class="card-title cyan-text text-darken-4">${post.title}</div>
         <div class="card-content black-text text-darken-4">${post.content}</div>
-        <div class="card-action right black-text text-lighten-3">
+        <div class="card-action right-align black-text text-lighten-3">
             Posted by <strong>${meta.author}</strong> on <i><fmt:formatDate value="${post.createdAt}"
                                                                             pattern="yyyy-MM-dd"/></i>
         </div>

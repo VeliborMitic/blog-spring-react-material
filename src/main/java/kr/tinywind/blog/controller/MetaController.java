@@ -16,7 +16,7 @@ import java.util.List;
  * Created by tinywind on 2016-06-20.
  */
 @Controller
-@RequestMapping("/!meta")
+@RequestMapping("!meta")
 public class MetaController extends BaseController {
     private static final Logger logger = LoggerFactory.getLogger(MetaController.class);
 

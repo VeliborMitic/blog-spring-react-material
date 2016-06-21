@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="page" tagdir="/WEB-INF/tags" %>
+<%--@elvariable id="meta" type="kr.tinywind.blog.model.BlogMeta"--%>
 
 <page:layout>
     <div class="container">
@@ -16,7 +17,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:set var="variables">title,author,introduce,greeting,mail</c:set>
+                <c:set var="variables">title,author,authorFacebookEmail,introduce,greeting,mail</c:set>
                 <c:forEach var="var" items="${variables}">
                     <tr>
                         <td>${var}</td>

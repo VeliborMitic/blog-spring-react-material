@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by tinywind on 2016-06-20.
  */
 @Controller
-@RequestMapping("/!post")
+@RequestMapping("!post")
 public class PostController extends BaseController {
     private static final Logger logger = LoggerFactory.getLogger(PostController.class);
 
