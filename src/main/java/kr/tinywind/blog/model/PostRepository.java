@@ -10,6 +10,6 @@ import org.springframework.data.repository.query.Param;
  * Created by tinywind on 2016-06-20.
  */
 public interface PostRepository extends JpaRepository<Post, Long> {
-    @Query("Select c from Post c where ((c.title like %:search%) or (c.content like %:search%))")
+    @Query("select p from Post p where title like %:search% or content like %:search%")
     Page<Post> findByTitleOrContent(Pageable pageable, @Param("search") String search);
 }

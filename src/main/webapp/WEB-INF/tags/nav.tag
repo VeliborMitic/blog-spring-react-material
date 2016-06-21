@@ -24,7 +24,7 @@
 </div>
 <ul id="nav-mobile" class="side-nav fixed">
     <li class="logo bold">
-        <a id="logo-container" href="<c:url value="/"/>" class="brand-logo">
+        <a id="logo-container" href="<c:url value="/"/>" class="brand-logo waves-effect waves-teal">
             HOME
         </a>
     </li>
