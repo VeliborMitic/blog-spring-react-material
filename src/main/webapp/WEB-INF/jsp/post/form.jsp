@@ -10,7 +10,7 @@
         <div class="row">
             <div class="l8 offset-l2 m10 offset-m1">
                 <form:form commandName="post"
-                           action="/!post/${ post.id == null ? 'add' : post.id.toString().concat('/modify')}"
+                           action="/post/${ post.id == null ? 'add' : post.id.toString().concat('/modify')}"
                            method="post" enctype="multipart/form-data"
                            onsubmit="$('#content').val($('#pen').html()); pen.destroy();">
 

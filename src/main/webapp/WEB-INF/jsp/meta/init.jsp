@@ -8,7 +8,7 @@
     <div class="container">
         <h1>META CONFIG</h1>
         <div class="row">
-            <form:form commandName="meta" action="/!meta/init" method="post" enctype="multipart/form-data">
+            <form:form commandName="meta" action="/meta/init" method="post" enctype="multipart/form-data">
                 <c:set var="variables">title,author,authorFacebookEmail,introduce,greeting,mail</c:set>
                 <c:forEach var="var" items="${variables}">
                     <div class="input-field col l6 s12">

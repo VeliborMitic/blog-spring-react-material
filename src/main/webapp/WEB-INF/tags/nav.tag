@@ -3,6 +3,7 @@
 <%@ taglib prefix="page" tagdir="/WEB-INF/tags" %>
 <%--@elvariable id="meta" type="kr.tinywind.blog.model.BlogMeta"--%>
 <%--@elvariable id="_USER" type="org.springframework.social.connect.UserProfile"--%>
+<%--@elvariable id="_csrf" type="org.springframework.security.web.csrf.CsrfToken"--%>
 
 <nav class="top-nav transparent">
     <div class="parallax-container">
@@ -29,7 +30,7 @@
         </a>
     </li>
     <li class="search">
-        <form method="get" action="<c:url value="/!post/list"/>">
+        <form method="get" action="<c:url value="/post/list"/>">
             <div class="search-wrapper card">
                 <input id="search" name="search"><i class="material-icons">search</i>
                 <div class="search-results"></div>
@@ -41,7 +42,7 @@
             <li class="bold">
                 <a class="waves-effect waves-teal"
                    href="javascript:$('<form/>',{method:'post', action: '<c:url value="/signin/facebook"/>'})
-                        .append($('<input/>',{name:'_csrf', value: '${_csrf.token}'}))
+                        .append($('<input/>',{name:_csrf.name, value: _csrf.token}))
                         .submit();">Login on Facebook</a>
             </li>
         </c:when>
@@ -60,7 +61,7 @@
                                 <li>
                                     <a class="waves-effect waves-teal"
                                        href="javascript:$('<form/>',{method:'post', action: '<c:url value="/!user/logout"/>'})
-                                        .append($('<input/>',{name:'_csrf', value: '${_csrf.token}'}))
+                                        .append($('<input/>',{name:_csrf.name, value: _csrf.token}))
                                         .submit();">Logout</a>
                                 </li>
                             </ul>
@@ -70,7 +71,7 @@
             </li>
             <c:if test="${_USER.email.equals(meta.authorFacebookEmail)}">
                 <li>
-                    <a class="waves-effect waves-teal" href="<c:url value="/!post/add"/>">
+                    <a class="waves-effect waves-teal" href="<c:url value="/post/add"/>">
                         Post
                     </a>
                 </li>

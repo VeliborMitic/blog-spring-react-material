@@ -14,6 +14,6 @@
                 <i class="cyan-text">${search}</i> 에 대한 검색 결과
             </div>
         </c:if>
-        <jsp:include page="/!post/list.section" flush="true"/>
+        <jsp:include page="/post/list.section" flush="true"/>
     </div>
 </page:layout>

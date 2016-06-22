@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="l8 offset-l2 m10 offset-m1">
-                <jsp:include page="/!post/list-index.section" flush="true"/>
+                <jsp:include page="/post/list-index.section" flush="true"/>
             </div>
         </div>
     </div>

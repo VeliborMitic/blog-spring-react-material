@@ -7,14 +7,7 @@
 <%--@elvariable id="posts" type="org.springframework.data.domain.Page<kr.tinywind.blog.model.Post>"--%>
 
 <c:forEach var="post" items="${posts.content}">
-    <a href="/!post/${post.id}" class="card-panel card small waves-effect waves-block">
-        <div class="card-title cyan-text text-darken-4">${post.title}</div>
-        <div class="card-content black-text text-darken-4">${post.content}</div>
-        <div class="card-action right-align black-text text-lighten-3">
-            Posted by <strong>${meta.author}</strong> on <i><fmt:formatDate value="${post.createdAt}"
-                                                                            pattern="yyyy-MM-dd"/></i>
-        </div>
-    </a>
+    <page:postCard post="${post}"/>
 </c:forEach>
 
 <ul class="row pagination center-align">
@@ -28,7 +21,7 @@
     <c:if test="${end >= 1}">
         <c:if test="${posts.number != 0}">
             <li>
-                <a href="<c:url value="/!post/list?page=0&search=${search}"/>"> <i
+                <a href="<c:url value="/post/list?page=0&search=${search}"/>"> <i
                         class="material-icons">chevron_left</i>
                 </a>
             </li>
@@ -40,13 +33,13 @@
                 </c:when>
                 <c:otherwise>
                     <li class="waves-effect"><a
-                            href="<c:url value="/!post/list?page=${num}&search=${search}"/>"> ${num + 1} </a></li>
+                            href="<c:url value="/post/list?page=${num}&search=${search}"/>"> ${num + 1} </a></li>
                 </c:otherwise>
             </c:choose>
         </c:forEach>
         <c:if test="${posts.number != posts.totalPages - 1}">
             <li>
-                <a href="<c:url value="/!post/list?page=${posts.totalPages - 1}&search=${search}"/>"> <i
+                <a href="<c:url value="/post/list?page=${posts.totalPages - 1}&search=${search}"/>"> <i
                         class="material-icons">chevron_right</i></a>
             </li>
         </c:if>

@@ -21,7 +21,7 @@ public class InitInterceptor extends BaseInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         final String contextPath = servletContext.getContextPath();
         final String uri = request.getRequestURI().substring(contextPath.length());
-        final String metaInitUri = "/!meta/init";
+        final String metaInitUri = "/meta/init";
 
         if (!uri.contains(metaInitUri) && !uri.contains("/error")) {
             if (!meta.isInitialized()) {
